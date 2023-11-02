@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../../theme/colour.dart';
 import '../../addnote/view/add_note.dart';
@@ -26,7 +25,7 @@ class HomePage extends GetView<HomeController> {
           padding: const EdgeInsets.all(8.0),
           child: RefreshIndicator(
             onRefresh: ()async{
-              await Future.delayed(Duration(seconds: 3));
+              await Future.delayed(const Duration(seconds: 3));
               acon.getnotes();
 
 
@@ -37,9 +36,23 @@ class HomePage extends GetView<HomeController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Notes',style: TextStyle(fontSize: 40,color: AppColors.testcolour),),
-                    Container(
-                      child: Row(
-                        children: [ Padding(
+                    Row(
+                      children: [ Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: InkWell(
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: const Color(0xFF3B3B3B),
+                            ),
+
+                            child: const Icon(Icons.search),
+                          ),
+                        ),
+                      ),
+                        Padding(
                           padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             child: Container(
@@ -47,37 +60,21 @@ class HomePage extends GetView<HomeController> {
                               height: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                color: Color(0xFF3B3B3B),
+                                color: const Color(0xFF3B3B3B),
                               ),
 
-                              child: const Icon(Icons.search),
+                              child: const Icon(Icons.info_outline ,),
                             ),
                           ),
-                        ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: InkWell(
-                              child: Container(
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Color(0xFF3B3B3B),
-                                ),
-
-                                child: const Icon(Icons.info_outline ,),
-                              ),
-                            ),
-                          ),],
-                      ),
+                        ),],
                     ),
                   ],
                 ),
 
-                Container(
+                SizedBox(
                   height: mHeight*0.85,
                   child: controller.obx(
-                        (listnote)=>Container(
+                        (listnote)=>SizedBox(
                           height: mHeight*0.85,
                           child: ListView.builder(
 

@@ -102,14 +102,14 @@ class DialogHelper {
                   // Loader(),
                    Center(child: Icon(Icons.info_outline,color: AppColors.testcolour,)),
                   const SizedBox(height: 10),
-                  Text("Notes Saved Successfully"),
-                  SizedBox(
+                  const Text("Notes Saved Successfully"),
+                  const SizedBox(
                     height: 5,
                   ),
                   ElevatedButton(onPressed: (){
-                    Get.offAll(HomePage());
+                    Get.offAll(const HomePage());
 
-                  }, child: Text('ok'))
+                  }, child: const Text('ok'))
                 ],
               ),
             ),
@@ -139,7 +139,7 @@ class DialogHelper {
                   Center(child: Icon(Icons.info_outline,color: AppColors.testcolour,)),
                   const SizedBox(height: 10),
                   Text("Save changes??",style: TextStyle(color: AppColors.testcolour),),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                  Padding(
@@ -149,19 +149,19 @@ class DialogHelper {
                      children: [
                        ElevatedButton(onPressed: (){
 
-                         Get.to(HomePage(),transition: Transition.rightToLeft);
-                       },
-                         child: Text('Discard'),style: ButtonStyle(
+                         Get.to(const HomePage(),transition: Transition.rightToLeft);
+                       },style: ButtonStyle(
                              backgroundColor:  MaterialStateProperty.all<Color>(Colors.redAccent)
-                         ),),
+                         ),
+                         child: const Text('Discard'),),
                        ElevatedButton(onPressed: ()async{
                          await apiProvider.update(id,title, description);
 
-                         Get.to(HomePage(),transition: Transition.rightToLeft);
-                       },
-                           child: Text('save'),style: ButtonStyle(
+                         Get.to(const HomePage(),transition: Transition.rightToLeft);
+                       },style: ButtonStyle(
                            backgroundColor:  MaterialStateProperty.all<Color>(Colors.green)
-                         ),)
+                         ),
+                           child: const Text('save'),)
                      ],
                    ),
                  )
