@@ -82,7 +82,7 @@ class HomePage extends GetView<HomeController> {
 
                             itemBuilder: (context,index){
                                data++;
-                              if(AppColors.noteColorList.length==data){;
+                              if(AppColors.noteColorList.length==data){
                                 data=0;
                               }
                               return InkWell(
@@ -98,8 +98,8 @@ class HomePage extends GetView<HomeController> {
                                       listnote.data.remove(index);
                                       acon.deletenote(listnote.data[index].id.toString());
                                     },
-                                    background: Container(alignment:Alignment.centerRight,color: Colors.red,child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                    background: Container(alignment:Alignment.centerRight,color: Colors.red,child: const Padding(
+                                      padding: EdgeInsets.all(8.0),
                                       child: Icon(Icons.delete_outline,size: 45,),
                                     ),),
                                     child: Container(
@@ -144,7 +144,7 @@ class HomePage extends GetView<HomeController> {
                     // here you can put your custom loading indicator, but
                     // by default would be Center(child:CircularProgressIndicator())
                     onLoading: Center(child: CircularProgressIndicator()),
-                    onEmpty: Text('No data found'),
+                    onEmpty: const Text('No data found'),
 
                     // here also you can set your own error widget, but by
                     // default will be an Center(child:Text(error))
